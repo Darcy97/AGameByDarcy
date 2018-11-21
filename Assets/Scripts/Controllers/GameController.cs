@@ -12,9 +12,13 @@ public class GameController : MonoBehaviour {
     
     private void Awake()
     {
+        
         var contexts = Contexts.sharedInstance;
-        _systems = new GameSystems(contexts);
+
         services.Initialize(contexts, this);
+        
+        _systems = new GameSystems(contexts);
+        
     }
     
 
@@ -25,12 +29,12 @@ public class GameController : MonoBehaviour {
 	
 	
 	void Update () {
-        //_systems.Execute();
-        //_systems.Cleanup();
+        _systems.Execute();
+        _systems.Cleanup();
 	}
 
     private void OnDestroy()
     {
-        //_systems.TearDown();
+        _systems.TearDown();
     }
 }

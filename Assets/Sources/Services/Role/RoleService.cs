@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-class RoleService : IAssetListener
+public class RoleService : IAssetListener
 {
     public static RoleService singlton = new RoleService();
 
@@ -9,16 +9,21 @@ class RoleService : IAssetListener
 
     public void Initialize(Contexts contexts, Transform parent)
     {
+        Debug.Log("init roleservices"); 
         _contexts = contexts;
         _parent = parent;
         contexts.game.CreateEntity().AddAssetListener(this);
     }
 
+
     public void OnAsset(GameEntity entity, string value)
     {
         Debug.Log("onasset");
+        Debug.Log(value);
         var prefab = Resources.Load<GameObject>(value);
-        var role = Object.Instantiate(prefab, _parent).GetComponent<IRole>();
+        GameObject obj = Object.Instantiate(prefab, _parent);
+        obj.transform.rotation = Quaternion.identity;
+        var role = obj.GetComponent<IRole>();
         role.Link(entity, _contexts.game);
     }
 }
