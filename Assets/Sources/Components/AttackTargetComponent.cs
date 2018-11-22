@@ -2,7 +2,7 @@
 using Entitas.CodeGeneration.Attributes;
 
 [Event(EventTarget.Self)]
-class AttackTargetComponent
+public sealed class AttackTargetComponent : IComponent
 {
     public RoleType value;
 }

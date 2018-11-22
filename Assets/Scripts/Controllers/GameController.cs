@@ -10,7 +10,7 @@ public class GameController : MonoBehaviour {
     public Terrain SmallTerrain;
     public Terrain BigTerrain;
 
-    public Transform MonsterTarget;
+    public Transform MainRole;
     
     private void Awake()
     {

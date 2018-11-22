@@ -4,7 +4,7 @@ using UnityEngine;
 
 public sealed class GameSceneSystem : /*ReactiveSystem<GameEntity>,*/ IInitializeSystem {
 
-    const int m_monster_number = 10;
+    const int m_monster_number = 100;
 
     public EntityService entityService = EntityService.singleton;
     public RandomService randomService = RandomService.gameScene;

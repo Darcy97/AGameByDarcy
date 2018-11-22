@@ -20,11 +20,11 @@ RenderSettings:
   m_FogDensity: 0.0082
   m_LinearFogStart: 52.9
   m_LinearFogEnd: 489.1
-  m_AmbientSkyColor: {r: 0, g: 0.8752229, b: 1.7384559, a: 3.33}
+  m_AmbientSkyColor: {r: 0.1, g: 0.1, b: 0.1, a: 1}
   m_AmbientEquatorColor: {r: 0.37962, g: 0.41625, b: 0.44289, a: 3.33}
   m_AmbientGroundColor: {r: 0.15651, g: 0.14319, b: 0.11655, a: 3.33}
   m_AmbientIntensity: 3.33
-  m_AmbientMode: 3
+  m_AmbientMode: 4
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 2100000, guid: 39cace2863926444a9a78daa8ae26413, type: 2}
   m_HaloStrength: 0.5
@@ -184,7 +184,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4793725312972912, guid: 9a05a4d2fd82e454a800da1430324f2c, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 1.7
+      value: -7.39
       objectReference: {fileID: 0}
     - target: {fileID: 4793725312972912, guid: 9a05a4d2fd82e454a800da1430324f2c, type: 2}
       propertyPath: m_LocalPosition.y
@@ -192,7 +192,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4793725312972912, guid: 9a05a4d2fd82e454a800da1430324f2c, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 72.68
       objectReference: {fileID: 0}
     - target: {fileID: 4793725312972912, guid: 9a05a4d2fd82e454a800da1430324f2c, type: 2}
       propertyPath: m_LocalRotation.x
@@ -214,29 +214,78 @@ Prefab:
       propertyPath: m_RootOrder
       value: 9
       objectReference: {fileID: 0}
-    - target: {fileID: 1868532062663060, guid: 9a05a4d2fd82e454a800da1430324f2c, type: 2}
+    - target: {fileID: 1969147552052394, guid: 9a05a4d2fd82e454a800da1430324f2c, type: 2}
+      propertyPath: m_TagString
+      value: CanBeFollowUpArea
+      objectReference: {fileID: 0}
+    - target: {fileID: 1348094172240778, guid: 9a05a4d2fd82e454a800da1430324f2c, type: 2}
+      propertyPath: m_TagString
+      value: CanEscapeArea
+      objectReference: {fileID: 0}
+    - target: {fileID: 136833813497804906, guid: 9a05a4d2fd82e454a800da1430324f2c,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1348094172240778, guid: 9a05a4d2fd82e454a800da1430324f2c, type: 2}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4491638823638374, guid: 9a05a4d2fd82e454a800da1430324f2c, type: 2}
-      propertyPath: m_LocalRotation.x
+    - target: {fileID: 1969147552052394, guid: 9a05a4d2fd82e454a800da1430324f2c, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 20536290351137140, guid: 9a05a4d2fd82e454a800da1430324f2c,
+        type: 2}
+      propertyPath: m_ClearFlags
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1107751727116988, guid: 9a05a4d2fd82e454a800da1430324f2c, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1638501428121274, guid: 9a05a4d2fd82e454a800da1430324f2c, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1197429930550556, guid: 9a05a4d2fd82e454a800da1430324f2c, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 20536290351137140, guid: 9a05a4d2fd82e454a800da1430324f2c,
+        type: 2}
+      propertyPath: m_CullingMask.m_Bits
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 20536290351137140, guid: 9a05a4d2fd82e454a800da1430324f2c,
+        type: 2}
+      propertyPath: orthographic
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4491638823638374, guid: 9a05a4d2fd82e454a800da1430324f2c, type: 2}
-      propertyPath: m_LocalRotation.y
+    - target: {fileID: 136132897112807448, guid: 9a05a4d2fd82e454a800da1430324f2c,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 20536290351137140, guid: 9a05a4d2fd82e454a800da1430324f2c,
+        type: 2}
+      propertyPath: m_HDR
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4491638823638374, guid: 9a05a4d2fd82e454a800da1430324f2c, type: 2}
-      propertyPath: m_LocalRotation.z
+    - target: {fileID: 20536290351137140, guid: 9a05a4d2fd82e454a800da1430324f2c,
+        type: 2}
+      propertyPath: m_AllowMSAA
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 20536290351137140, guid: 9a05a4d2fd82e454a800da1430324f2c,
+        type: 2}
+      propertyPath: m_AllowDynamicResolution
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4491638823638374, guid: 9a05a4d2fd82e454a800da1430324f2c, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 4491638823638374, guid: 9a05a4d2fd82e454a800da1430324f2c, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
+    - target: {fileID: 20536290351137140, guid: 9a05a4d2fd82e454a800da1430324f2c,
+        type: 2}
+      propertyPath: m_RenderingPath
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a05a4d2fd82e454a800da1430324f2c, type: 2}
@@ -9703,6 +9752,16 @@ Prefab:
       propertyPath: target
       value: 
       objectReference: {fileID: 538588742}
+    - target: {fileID: 114539694228131636, guid: 106474d35cb62a6408f36bfa22752244,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114664828039059240, guid: 106474d35cb62a6408f36bfa22752244,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1587992810584592, guid: 106474d35cb62a6408f36bfa22752244, type: 2}
       propertyPath: m_IsActive
       value: 0
@@ -20639,6 +20698,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SmallTerrain: {fileID: 673413769}
   BigTerrain: {fileID: 175559778}
+  MainRole: {fileID: 538588742}
 --- !u!4 &1912157067
 Transform:
   m_ObjectHideFlags: 0

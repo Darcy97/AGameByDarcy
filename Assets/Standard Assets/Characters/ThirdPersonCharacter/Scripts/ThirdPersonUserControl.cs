@@ -74,9 +74,9 @@ namespace UnityStandardAssets.Characters.ThirdPerson
      */
             
                 
-            Vector3 direction = (target.position - transform.position).normalized;
+            //Vector3 direction = (target.position - transform.position).normalized;
 
-            m_Character.Move(direction, false, true);
+           // m_Character.Move(direction, false, true);
 
 
         }

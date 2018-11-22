@@ -18,7 +18,7 @@ public class EntityService {
 
     public GameEntity CreateRandomMonster(float x, float y, float z, int index)
     {
-        Debug.Log("createrandommonster");
+        
         var entity = _contexts.game.CreateEntity();
         
         //entity.AddGameMonster(0);

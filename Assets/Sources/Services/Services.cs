@@ -13,6 +13,7 @@ public class Services
         EntityService.singleton.Initialize(contexts);
 
         RoleService.singlton.Initialize(contexts, gameController.transform);
+        MonsterService.singlton.Initialize(contexts, gameController);
         //MonsterInstantiateService.singleton.Initialize(contexts, gameController.transform);
     }
 }
