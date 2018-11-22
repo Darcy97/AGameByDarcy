@@ -1,13 +1,9 @@
 ﻿using Entitas;
+using Entitas.CodeGeneration.Attributes;
 
-//[Game]
+[Game]
 public sealed class GameMonsterComponent : IComponent{
-    public int value;
 
-    
-}
-enum MonsterType
-{
-    A,
-    B,
+    [EntityIndex]
+    public int value;  //记录怪物索引
 }

@@ -2,6 +2,9 @@
 using Entitas.CodeGeneration.Attributes;
 
 [Event(EventTarget.Self)]
-public sealed class MovableComponent : IComponent {
-
+class AttackTargetComponent
+{
+    public RoleType value;
 }
+
+

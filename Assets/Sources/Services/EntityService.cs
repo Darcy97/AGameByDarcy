@@ -6,7 +6,7 @@ public class EntityService {
 
     public static EntityService singleton = new EntityService();
 
-    const string m_monster_prefab = "Prefabs/Mon";
+    const string m_monster_prefab = "Prefabs/MonRight";
 
     private Contexts _contexts;
 
@@ -16,17 +16,17 @@ public class EntityService {
     }
 
 
-    public GameEntity CreateRandomMonster(float x, float y, float z)
+    public GameEntity CreateRandomMonster(float x, float y, float z, int index)
     {
         Debug.Log("createrandommonster");
         var entity = _contexts.game.CreateEntity();
         
         //entity.AddGameMonster(0);
         entity.AddPosition(new FloatVector3(x, y, z));
-        Debug.Log(entity.position.value.x);
+        entity.AddGameMonster(index);
         entity.AddAsset(m_monster_prefab);
-        
         entity.isMovable = true;
+
         return entity;
     }
 

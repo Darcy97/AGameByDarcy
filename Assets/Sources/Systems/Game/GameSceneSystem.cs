@@ -21,12 +21,12 @@ public sealed class GameSceneSystem : /*ReactiveSystem<GameEntity>,*/ IInitializ
         //TODO init all monsters
         for (int i = 0; i < m_monster_number; i++)
         {
-            Debug.Log("create");
+            
             float x = randomService.Float(-80, 80);
             float y = 2; 
             float z = randomService.Float(-80, 80);
             
-            entityService.CreateRandomMonster(x, y, z);
+            entityService.CreateRandomMonster(x, y, z, i);
         }
     }
 

@@ -9,6 +9,8 @@ public class GameController : MonoBehaviour {
 
     public Terrain SmallTerrain;
     public Terrain BigTerrain;
+
+    public Transform MonsterTarget;
     
     private void Awake()
     {

@@ -2,8 +2,9 @@
 using Entitas.Unity;
 using UnityEngine;
 
-public class Role : MonoBehaviour, IRole, IDestroyedListener, IPositionListener
+public class Role : MonoBehaviour, IRole, IDestroyedListener, IPositionListener, IMovableListener
 {
+
 
     public virtual void Link(IEntity entity, IContext context)
     {
@@ -30,6 +31,12 @@ public class Role : MonoBehaviour, IRole, IDestroyedListener, IPositionListener
     public void OnPosition(GameEntity entity, FloatVector3 value)
     {
         transform.localPosition = new Vector3(value.x, value.y, value.z);
+    }
+
+    private bool canMove;
+    public void OnMovable(GameEntity entity)
+    {
+        canMove = entity.isMovable; 
     }
 }
 
