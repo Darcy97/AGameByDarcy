@@ -3,7 +3,13 @@ using Entitas.Unity;
 using UnityEngine;
 using UnityStandardAssets.Characters.ThirdPerson;
 
-public class Role : MonoBehaviour, IRole, IDestroyedListener, IPositionListener, IMovableListener, IAttackTargetListener
+public class Role : 
+    MonoBehaviour, 
+    IRole, 
+    IDestroyedListener, 
+    IPositionListener, 
+    IMovableListener, 
+    ITargetPositionListener
 {
 
     public virtual void Link(IEntity entity, IContext context)
@@ -13,17 +19,34 @@ public class Role : MonoBehaviour, IRole, IDestroyedListener, IPositionListener,
         e.AddPositionListener(this);
         e.AddDestroyedListener(this);
         e.AddMovableListener(this);
-        e.AddAttackTargetListener(this);
+        e.AddTargetPositionListener(this);
+        
 
         var pos = e.position.value;
         transform.localPosition = new Vector3(pos.x, pos.y, pos.z);
     }
 
-    private bool _randomMove;
     private void Start()
     {
-        //random move
-        _randomMove = true;
+        
+    }
+
+    public bool mo;
+    public bool sto;
+
+    private void FixedUpdate()
+    {
+        if (mo)
+        {
+            mo = false;
+            GetComponent<ThirdPersonCharacter>().Move(new Vector3(10, 2, 10), false, false);
+        }
+
+        if (sto) 
+        {
+            sto = false;
+            GetComponent<ThirdPersonCharacter>().Move(new Vector3(0.1f, 0, 0.1f), false, false);
+        }
     }
 
     public void OnDestroyed(GameEntity entity)
@@ -42,37 +65,18 @@ public class Role : MonoBehaviour, IRole, IDestroyedListener, IPositionListener,
         transform.localPosition = new Vector3(value.x, value.y, value.z);
     }
 
-    private bool canMove;
+    protected bool canMove;
     public void OnMovable(GameEntity entity)
     {
         canMove = entity.isMovable; 
     }
 
-    private RoleType _target = RoleType.Default;
-
-    public void OnAttackTarget(GameEntity entity, RoleType value)
+    public void OnTargetPosition(GameEntity entity, FloatVector3 value)
     {
-        _target = value;
+        MonsterService.singlton.RunToEnemy(transform, RoleType.MainRole);
+        entity.isMoving = true;
     }
 
-    private bool _canFollowUp;
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.CompareTag("CanBeFollowUpArea"))
-            _canFollowUp = true; //进入追击范围
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("CanEscapeArea"))
-            _canFollowUp = false;
-    }
-
-    private void FixedUpdate()
-    {
-        if(canMove && _target != RoleType.Default && _canFollowUp)
-            MonsterService.singlton.RunToEnemy(transform, RoleType.MainRole);
-    }
 }
 

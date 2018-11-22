@@ -12,28 +12,38 @@ public static class GameComponentsLookup {
     public const int AssetListener = 1;
     public const int AttackTarget = 2;
     public const int AttackTargetListener = 3;
-    public const int Destroyed = 4;
-    public const int DestroyedListener = 5;
-    public const int GameMonster = 6;
-    public const int Movable = 7;
-    public const int MovableListener = 8;
-    public const int Position = 9;
-    public const int PositionListener = 10;
+    public const int CatchRole = 4;
+    public const int CatchRoleListener = 5;
+    public const int Destroyed = 6;
+    public const int DestroyedListener = 7;
+    public const int GameMonster = 8;
+    public const int Movable = 9;
+    public const int MovableListener = 10;
+    public const int Moving = 11;
+    public const int Position = 12;
+    public const int PositionListener = 13;
+    public const int TargetPosition = 14;
+    public const int TargetPositionListener = 15;
 
-    public const int TotalComponents = 11;
+    public const int TotalComponents = 16;
 
     public static readonly string[] componentNames = {
         "Asset",
         "AssetListener",
         "AttackTarget",
         "AttackTargetListener",
+        "CatchRole",
+        "CatchRoleListener",
         "Destroyed",
         "DestroyedListener",
         "GameMonster",
         "Movable",
         "MovableListener",
+        "Moving",
         "Position",
-        "PositionListener"
+        "PositionListener",
+        "TargetPosition",
+        "TargetPositionListener"
     };
 
     public static readonly System.Type[] componentTypes = {
@@ -41,12 +51,17 @@ public static class GameComponentsLookup {
         typeof(AssetListenerComponent),
         typeof(AttackTargetComponent),
         typeof(AttackTargetListenerComponent),
+        typeof(CatchRoleComponent),
+        typeof(CatchRoleListenerComponent),
         typeof(DestroyedComponent),
         typeof(DestroyedListenerComponent),
         typeof(GameMonsterComponent),
         typeof(MovableComponent),
         typeof(MovableListenerComponent),
+        typeof(MovingComponent),
         typeof(PositionComponent),
-        typeof(PositionListenerComponent)
+        typeof(PositionListenerComponent),
+        typeof(TargetPositionComponent),
+        typeof(TargetPositionListenerComponent)
     };
 }
