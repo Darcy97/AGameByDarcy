@@ -32,9 +32,14 @@ public class GamePhysicalController : MonoBehaviour
     }
 
 
-    private void FixedUpdate()
+    private void Update()
     {
         _systems.Execute();
+    }
+
+    private void FixedUpdate()
+    {
+        //_systems.Execute();
     }
 
 

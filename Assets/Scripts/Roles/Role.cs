@@ -73,7 +73,7 @@ public class Role :
 
     public void OnTargetPosition(GameEntity entity, FloatVector3 value)
     {
-        MonsterService.singlton.RunToEnemy(transform, RoleType.MainRole);
+        //MonsterService.singlton.RunToEnemy(transform, RoleType.MainRole);
         entity.isMoving = true;
     }
 

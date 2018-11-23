@@ -6,6 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-public interface ICatchRoleListener {
-    void OnCatchRole(GameEntity entity, RoleType value);
+public interface IFollowTargetListener {
+    void OnFollowTarget(GameEntity entity, RoleType value);
 }

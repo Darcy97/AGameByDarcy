@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityStandardAssets.Characters.ThirdPerson;
 
 public class RoleService : IAssetListener
 {
@@ -21,10 +22,11 @@ public class RoleService : IAssetListener
     {
         var prefab = Resources.Load<GameObject>(value);
         GameObject obj = Object.Instantiate(prefab, _parent);
+        entity.AddMonsterController(obj.GetComponent<ThirdPersonCharacter>());
         obj.transform.rotation = Quaternion.identity;
-        var role = obj.GetComponent<IRole>();
+        var role = obj.GetComponent<Monster>();
         role.Link(entity, _contexts.game);
-        
+
     }
-  
+
 }

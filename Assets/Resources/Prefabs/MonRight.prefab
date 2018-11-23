@@ -731,6 +731,7 @@ GameObject:
   - component: {fileID: 114539694228131636}
   - component: {fileID: 114205823556460536}
   - component: {fileID: 114664828039059240}
+  - component: {fileID: 114005814527744136}
   m_Layer: 0
   m_Name: MonRight
   m_TagString: Untagged
@@ -1356,7 +1357,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1587992810584592}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 5.318}
+  m_LocalPosition: {x: 0, y: 0.458, z: 5.318}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4778540582701414}
@@ -2487,6 +2488,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114005814527744136
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1587992810584592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8a32c2c8e6a4a24f96fcec5f712b768, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mo: 0
+  sto: 0
 --- !u!114 &114205823556460536
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2524,11 +2538,13 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1587992810584592}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c3c983e449834b74cb018c7e4d3bd09a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mo: 0
+  sto: 0
 --- !u!136 &136338750840330650
 CapsuleCollider:
   m_ObjectHideFlags: 1

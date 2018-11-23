@@ -6,31 +6,31 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-public sealed class CatchRoleEventSystem : Entitas.ReactiveSystem<GameEntity> {
+public sealed class FollowTargetEventSystem : Entitas.ReactiveSystem<GameEntity> {
 
-    readonly System.Collections.Generic.List<ICatchRoleListener> _listenerBuffer;
+    readonly System.Collections.Generic.List<IFollowTargetListener> _listenerBuffer;
 
-    public CatchRoleEventSystem(Contexts contexts) : base(contexts.game) {
-        _listenerBuffer = new System.Collections.Generic.List<ICatchRoleListener>();
+    public FollowTargetEventSystem(Contexts contexts) : base(contexts.game) {
+        _listenerBuffer = new System.Collections.Generic.List<IFollowTargetListener>();
     }
 
     protected override Entitas.ICollector<GameEntity> GetTrigger(Entitas.IContext<GameEntity> context) {
         return Entitas.CollectorContextExtension.CreateCollector(
-            context, Entitas.TriggerOnEventMatcherExtension.Added(GameMatcher.CatchRole)
+            context, Entitas.TriggerOnEventMatcherExtension.Added(GameMatcher.FollowTarget)
         );
     }
 
     protected override bool Filter(GameEntity entity) {
-        return entity.hasCatchRole && entity.hasCatchRoleListener;
+        return entity.hasFollowTarget && entity.hasFollowTargetListener;
     }
 
     protected override void Execute(System.Collections.Generic.List<GameEntity> entities) {
         foreach (var e in entities) {
-            var component = e.catchRole;
+            var component = e.followTarget;
             _listenerBuffer.Clear();
-            _listenerBuffer.AddRange(e.catchRoleListener.value);
+            _listenerBuffer.AddRange(e.followTargetListener.value);
             foreach (var listener in _listenerBuffer) {
-                listener.OnCatchRole(e, component.value);
+                listener.OnFollowTarget(e, component.value);
             }
         }
     }

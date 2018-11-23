@@ -12,31 +12,37 @@ public static class GameComponentsLookup {
     public const int AssetListener = 1;
     public const int AttackTarget = 2;
     public const int AttackTargetListener = 3;
-    public const int CatchRole = 4;
-    public const int CatchRoleListener = 5;
+    public const int AwayRole = 4;
+    public const int CatchRole = 5;
     public const int Destroyed = 6;
     public const int DestroyedListener = 7;
-    public const int GameMonster = 8;
-    public const int Movable = 9;
-    public const int MovableListener = 10;
-    public const int Moving = 11;
-    public const int Position = 12;
-    public const int PositionListener = 13;
-    public const int TargetPosition = 14;
-    public const int TargetPositionListener = 15;
+    public const int FollowTarget = 8;
+    public const int FollowTargetListener = 9;
+    public const int GameMonster = 10;
+    public const int MonsterController = 11;
+    public const int Movable = 12;
+    public const int MovableListener = 13;
+    public const int Moving = 14;
+    public const int Position = 15;
+    public const int PositionListener = 16;
+    public const int TargetPosition = 17;
+    public const int TargetPositionListener = 18;
 
-    public const int TotalComponents = 16;
+    public const int TotalComponents = 19;
 
     public static readonly string[] componentNames = {
         "Asset",
         "AssetListener",
         "AttackTarget",
         "AttackTargetListener",
+        "AwayRole",
         "CatchRole",
-        "CatchRoleListener",
         "Destroyed",
         "DestroyedListener",
+        "FollowTarget",
+        "FollowTargetListener",
         "GameMonster",
+        "MonsterController",
         "Movable",
         "MovableListener",
         "Moving",
@@ -51,11 +57,14 @@ public static class GameComponentsLookup {
         typeof(AssetListenerComponent),
         typeof(AttackTargetComponent),
         typeof(AttackTargetListenerComponent),
+        typeof(AwayRoleComponent),
         typeof(CatchRoleComponent),
-        typeof(CatchRoleListenerComponent),
         typeof(DestroyedComponent),
         typeof(DestroyedListenerComponent),
+        typeof(FollowTargetComponent),
+        typeof(FollowTargetListenerComponent),
         typeof(GameMonsterComponent),
+        typeof(MonsterController),
         typeof(MovableComponent),
         typeof(MovableListenerComponent),
         typeof(MovingComponent),

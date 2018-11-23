@@ -8,25 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public CatchRoleComponent catchRole { get { return (CatchRoleComponent)GetComponent(GameComponentsLookup.CatchRole); } }
-    public bool hasCatchRole { get { return HasComponent(GameComponentsLookup.CatchRole); } }
+    public FollowTargetComponent followTarget { get { return (FollowTargetComponent)GetComponent(GameComponentsLookup.FollowTarget); } }
+    public bool hasFollowTarget { get { return HasComponent(GameComponentsLookup.FollowTarget); } }
 
-    public void AddCatchRole(string newValue) {
-        var index = GameComponentsLookup.CatchRole;
-        var component = CreateComponent<CatchRoleComponent>(index);
+    public void AddFollowTarget(RoleType newValue) {
+        var index = GameComponentsLookup.FollowTarget;
+        var component = CreateComponent<FollowTargetComponent>(index);
         component.value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceCatchRole(string newValue) {
-        var index = GameComponentsLookup.CatchRole;
-        var component = CreateComponent<CatchRoleComponent>(index);
+    public void ReplaceFollowTarget(RoleType newValue) {
+        var index = GameComponentsLookup.FollowTarget;
+        var component = CreateComponent<FollowTargetComponent>(index);
         component.value = newValue;
         ReplaceComponent(index, component);
     }
 
-    public void RemoveCatchRole() {
-        RemoveComponent(GameComponentsLookup.CatchRole);
+    public void RemoveFollowTarget() {
+        RemoveComponent(GameComponentsLookup.FollowTarget);
     }
 }
 
@@ -40,17 +40,17 @@ public partial class GameEntity {
 //------------------------------------------------------------------------------
 public sealed partial class GameMatcher {
 
-    static Entitas.IMatcher<GameEntity> _matcherCatchRole;
+    static Entitas.IMatcher<GameEntity> _matcherFollowTarget;
 
-    public static Entitas.IMatcher<GameEntity> CatchRole {
+    public static Entitas.IMatcher<GameEntity> FollowTarget {
         get {
-            if (_matcherCatchRole == null) {
-                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.CatchRole);
+            if (_matcherFollowTarget == null) {
+                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.FollowTarget);
                 matcher.componentNames = GameComponentsLookup.componentNames;
-                _matcherCatchRole = matcher;
+                _matcherFollowTarget = matcher;
             }
 
-            return _matcherCatchRole;
+            return _matcherFollowTarget;
         }
     }
 }

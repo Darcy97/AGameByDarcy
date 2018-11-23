@@ -19,7 +19,7 @@ public class MonsterService
     /// </summary>
     /// <param name="transform" 被控制角色></param>
     /// <param name="target" 目标角色></param>
-    public void RunToEnemy(Transform transform, RoleType target)
+    public void RunToEnemy(Transform character, RoleType target)
     {
         Transform _target;
         if (target == RoleType.MainRole)
@@ -30,10 +30,12 @@ public class MonsterService
         if (_target == null)
             return;
 
-        ThirdPersonCharacter character = transform.GetComponent<ThirdPersonCharacter>();
-        Vector3 direction = (_target.position - transform.position).normalized;
+        character.GetComponent<ThirdPersonCharacter>().Move(_target.position, false, false);
+    }
 
-        character.Move(direction, false, false);
+    public void Stop(Transform character)
+    {
+        character.GetComponent<ThirdPersonCharacter>().Stop();
     }
 
 }

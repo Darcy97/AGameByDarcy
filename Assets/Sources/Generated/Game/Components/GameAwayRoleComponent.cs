@@ -8,25 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public CatchRoleComponent catchRole { get { return (CatchRoleComponent)GetComponent(GameComponentsLookup.CatchRole); } }
-    public bool hasCatchRole { get { return HasComponent(GameComponentsLookup.CatchRole); } }
+    public AwayRoleComponent awayRole { get { return (AwayRoleComponent)GetComponent(GameComponentsLookup.AwayRole); } }
+    public bool hasAwayRole { get { return HasComponent(GameComponentsLookup.AwayRole); } }
 
-    public void AddCatchRole(string newValue) {
-        var index = GameComponentsLookup.CatchRole;
-        var component = CreateComponent<CatchRoleComponent>(index);
+    public void AddAwayRole(string newValue) {
+        var index = GameComponentsLookup.AwayRole;
+        var component = CreateComponent<AwayRoleComponent>(index);
         component.value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceCatchRole(string newValue) {
-        var index = GameComponentsLookup.CatchRole;
-        var component = CreateComponent<CatchRoleComponent>(index);
+    public void ReplaceAwayRole(string newValue) {
+        var index = GameComponentsLookup.AwayRole;
+        var component = CreateComponent<AwayRoleComponent>(index);
         component.value = newValue;
         ReplaceComponent(index, component);
     }
 
-    public void RemoveCatchRole() {
-        RemoveComponent(GameComponentsLookup.CatchRole);
+    public void RemoveAwayRole() {
+        RemoveComponent(GameComponentsLookup.AwayRole);
     }
 }
 
@@ -40,17 +40,17 @@ public partial class GameEntity {
 //------------------------------------------------------------------------------
 public sealed partial class GameMatcher {
 
-    static Entitas.IMatcher<GameEntity> _matcherCatchRole;
+    static Entitas.IMatcher<GameEntity> _matcherAwayRole;
 
-    public static Entitas.IMatcher<GameEntity> CatchRole {
+    public static Entitas.IMatcher<GameEntity> AwayRole {
         get {
-            if (_matcherCatchRole == null) {
-                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.CatchRole);
+            if (_matcherAwayRole == null) {
+                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.AwayRole);
                 matcher.componentNames = GameComponentsLookup.componentNames;
-                _matcherCatchRole = matcher;
+                _matcherAwayRole = matcher;
             }
 
-            return _matcherCatchRole;
+            return _matcherAwayRole;
         }
     }
 }

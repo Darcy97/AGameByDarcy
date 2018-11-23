@@ -1,9 +1,9 @@
 ﻿using Entitas;
 using Entitas.CodeGeneration.Attributes;
 
-[Event(EventTarget.Self)]
+[Game]
 public sealed class CatchRoleComponent : IComponent
 {
-    public RoleType value;
+    public string value;
 }
 

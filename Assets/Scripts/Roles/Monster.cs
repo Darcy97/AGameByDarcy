@@ -2,18 +2,19 @@
 using Entitas;
 using System.Linq;
 
-public class Monster : Role, ICatchRoleListener, IAttackTargetListener
+public class Monster : Role, IAttackTargetListener, IFollowTargetListener
 {
-    private int _index;
+    public int _index;
 
     public override void Link(IEntity entity, IContext context)
     {
         base.Link(entity, context);
-
+        
         GameEntity e = (GameEntity)entity;
 
         _index = e.gameMonster.value;
         e.AddAttackTargetListener(this);
+        e.AddFollowTargetListener(this);
     }
 
     private RoleType _target = RoleType.Default;
@@ -23,44 +24,63 @@ public class Monster : Role, ICatchRoleListener, IAttackTargetListener
         _target = value;
     }
 
-    private bool _canFollowUp;
-
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("CanBeFollowUpArea"))
+        var monsters = Contexts
+            .sharedInstance
+            .game
+            .GetEntitiesWithGameMonster(_index)
+            .Where(e => e.isMovable)
+            .ToArray();
+
+        if (monsters.Length > 0)
         {
-            var monsters = Contexts.sharedInstance.game.GetEntitiesWithGameMonster(_index).Where(e => e.isMovable)
-                    .ToArray();
-            if(monsters != null)
-            {
-                monsters[0].AddCatchRole(RoleType.MainRole);
-            }
-            //_canFollowUp = true; //进入追击范围
-        }
+            monsters[0].ReplaceCatchRole(other.tag);        
+        }  
     }
 
     private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("CanEscapeArea"))
-            _canFollowUp = false;
+    { 
+         var monsters = Contexts
+             .sharedInstance
+             .game
+             .GetEntitiesWithGameMonster(_index)
+             .Where(e => e.hasFollowTarget)
+             .ToArray();
+
+        if (monsters.Length > 0)
+         {            
+            monsters[0].ReplaceAwayRole(other.tag);
+         }
     }
 
     private void FixedUpdate()
     {
-        if (base.canMove && _target != RoleType.Default && _canFollowUp)
-            MonsterService.singlton.RunToEnemy(transform, RoleType.MainRole);
-    }
-
-    public void OnCatchRole(GameEntity entity, RoleType value)
-    {
-        
+        if (_catchRole)
+            MonsterService.singlton.RunToEnemy(transform, _followTarget);
     }
 
     private bool _randomMove;
     private void Start()
     {
-        //random move
+        // random move
         _randomMove = true;
     }
 
+    private bool _catchRole;
+    private RoleType _followTarget;
+
+    public void OnFollowTarget(GameEntity entity, RoleType value)
+    {
+        if (value == RoleType.MainRole)
+        {
+            _catchRole = true;
+            _followTarget = value;
+        }
+        else if(value == RoleType.Default)
+        {
+            _catchRole = false;
+            MonsterService.singlton.Stop(transform);
+        }
+    }
 }

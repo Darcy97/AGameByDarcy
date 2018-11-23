@@ -7,6 +7,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 [Entitas.CodeGeneration.Attributes.DontGenerate(false)]
-public sealed class CatchRoleListenerComponent : Entitas.IComponent {
-    public System.Collections.Generic.List<ICatchRoleListener> value;
+public sealed class FollowTargetListenerComponent : Entitas.IComponent {
+    public System.Collections.Generic.List<IFollowTargetListener> value;
 }

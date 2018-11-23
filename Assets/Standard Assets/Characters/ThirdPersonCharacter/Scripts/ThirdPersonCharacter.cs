@@ -43,9 +43,9 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		}
 
 
-		public void Move(Vector3 move, bool crouch, bool jump)
+		public void Move(Vector3 moveTarget, bool crouch, bool jump)
 		{
-
+            Vector3 move = moveTarget - transform.position;
 			// convert the world relative moveInput vector into a local-relative
 			// turn amount and forward amount required to head in the desired
 			// direction.
@@ -74,6 +74,50 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			// send input and other state parameters to the animator
 			UpdateAnimator(move);
 		}
+
+        public void Stop()
+        {
+            StopE(1);
+            StopE(2);
+            StopE(3);
+            StopE(4);
+            StopE(5);
+            StopE(6);
+            StopE(7);
+        }
+
+
+        private void StopE(int v)
+        {
+            Vector3 move = new Vector3(-v, 1, -v);
+            bool crouch = false;
+            bool jump = false;
+
+            if (move.magnitude > 1f) move.Normalize();
+            move = transform.InverseTransformDirection(move);
+            CheckGroundStatus();
+            move = Vector3.ProjectOnPlane(move, m_GroundNormal);
+            m_TurnAmount = Mathf.Atan2(move.x, move.z);
+            m_ForwardAmount = move.z;
+
+            ApplyExtraTurnRotation();
+
+            // control and velocity handling is different when grounded and airborne:
+            if (m_IsGrounded)
+            {
+                HandleGroundedMovement(crouch, jump);
+            }
+            else
+            {
+                HandleAirborneMovement();
+            }
+
+            ScaleCapsuleForCrouching(crouch);
+            PreventStandingInLowHeadroom();
+
+            // send input and other state parameters to the animator
+            UpdateAnimator(move);
+        }
 
 
 		void ScaleCapsuleForCrouching(bool crouch)
