@@ -36,17 +36,9 @@ public class Role :
 
     private void FixedUpdate()
     {
-        if (mo)
-        {
-            mo = false;
-            GetComponent<ThirdPersonCharacter>().Move(new Vector3(10, 2, 10), false, false);
-        }
-
-        if (sto) 
-        {
-            sto = false;
-            GetComponent<ThirdPersonCharacter>().Move(new Vector3(0.1f, 0, 0.1f), false, false);
-        }
+//         print("here");
+//         if (_hasTargetPosition)
+//             GetComponent<ThirdPersonCharacter>().Move(_targetPosition, false, false);   
     }
 
     public void OnDestroyed(GameEntity entity)
@@ -60,7 +52,7 @@ public class Role :
         Destroy(gameObject);
     }
 
-    public void OnPosition(GameEntity entity, FloatVector3 value)
+    public void OnPosition(GameEntity entity, UnityEngine.Vector3 value)
     {
         transform.localPosition = new Vector3(value.x, value.y, value.z);
     }
@@ -71,11 +63,17 @@ public class Role :
         canMove = entity.isMovable; 
     }
 
-    public void OnTargetPosition(GameEntity entity, FloatVector3 value)
+    protected bool _hasTargetPosition;
+    protected Vector3 _targetPosition;
+    public void OnTargetPosition(GameEntity entity, UnityEngine.Vector3 value)
     {
-        //MonsterService.singlton.RunToEnemy(transform, RoleType.MainRole);
-        entity.isMoving = true;
+        print("targetpos");
+        _hasTargetPosition = true;
+        print(value.ToString());
+        _targetPosition = value;       
     }
+
+
 
 
 }

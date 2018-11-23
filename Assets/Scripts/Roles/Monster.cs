@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using Entitas;
 using System.Linq;
+using UnityStandardAssets.Characters.ThirdPerson;
 
 public class Monster : Role, IAttackTargetListener, IFollowTargetListener
 {
@@ -58,6 +59,11 @@ public class Monster : Role, IAttackTargetListener, IFollowTargetListener
     {
         if (_catchRole)
             MonsterService.singlton.RunToEnemy(transform, _followTarget);
+
+        if(_hasTargetPosition)
+        {
+            GetComponent<ThirdPersonCharacter>().Move(_targetPosition, false, false);
+        }
     }
 
     private bool _randomMove;
@@ -75,6 +81,8 @@ public class Monster : Role, IAttackTargetListener, IFollowTargetListener
         if (value == RoleType.MainRole)
         {
             _catchRole = true;
+            
+            _hasTargetPosition = false;
             _followTarget = value;
         }
         else if(value == RoleType.Default)

@@ -27,6 +27,13 @@ public class RoleService : IAssetListener
         var role = obj.GetComponent<Monster>();
         role.Link(entity, _contexts.game);
 
+        entity.AddTargetPosition(GetARandomPositionWithPosition(entity.position.value));
+
+    }
+
+    private Vector3 GetARandomPositionWithPosition(Vector3 position)
+    {
+        return position + new Vector3(RandomService.gameScene.Float(-200, 200), 0, RandomService.gameScene.Float(-5, 5));
     }
 
 }

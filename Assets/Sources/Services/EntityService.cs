@@ -22,7 +22,7 @@ public class EntityService {
         var entity = _contexts.game.CreateEntity();
         
         //entity.AddGameMonster(0);
-        entity.AddPosition(new FloatVector3(x, y, z));
+        entity.AddPosition(new Vector3(x, y, z));
         entity.AddGameMonster(index);
         entity.AddAsset(m_monster_prefab);
         entity.isMovable = true;
