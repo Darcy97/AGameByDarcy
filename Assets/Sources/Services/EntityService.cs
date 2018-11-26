@@ -6,7 +6,7 @@ public class EntityService {
 
     public static EntityService singleton = new EntityService();
 
-    const string m_monster_prefab = "Prefabs/MonRight";
+    const string m_monster_prefab = "Prefabs/AutoMonster";
 
     private Contexts _contexts;
 
