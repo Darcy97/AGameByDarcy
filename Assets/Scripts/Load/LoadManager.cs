@@ -4,9 +4,8 @@ using UnityEngine.SceneManagement;
 
 public class LoadManager : MonoBehaviour {
 
-	public void OnStartGameButtonClick()
+	public void OnLoadGameButtonClick(int level)
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(level);
     }
-
 }
