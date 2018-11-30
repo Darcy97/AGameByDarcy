@@ -168,14 +168,12 @@ public class SelectObjects : MonoBehaviour
             {
                 
                 SelectObj(trans.transform, false);
-                print("---" + trans.name);
             }
 
             else
 
             {
                 SelectObj(trans.transform, true);
-                print("+++" + trans.name);
             }
 
         }
@@ -187,6 +185,10 @@ public class SelectObjects : MonoBehaviour
         {
             character.GetComponentInChildren<SkinnedMeshRenderer>().material.shader = selecteShader;
             character.GetComponent<SelectedComponent>().isSelected = true;
+        } else
+        {
+            character.GetComponentInChildren<SkinnedMeshRenderer>().material.shader = defaultShader;
+            character.GetComponent<SelectedComponent>().isSelected = false;
         }
     }
 

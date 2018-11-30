@@ -35,10 +35,7 @@ public class Role :
     public bool sto;
 
     private void FixedUpdate()
-    {
-//         print("here");
-//         if (_hasTargetPosition)
-//             GetComponent<ThirdPersonCharacter>().Move(_targetPosition, false, false);   
+    {  
     }
 
     public void OnDestroyed(GameEntity entity)
@@ -67,9 +64,7 @@ public class Role :
     protected Vector3 _targetPosition;
     public void OnTargetPosition(GameEntity entity, UnityEngine.Vector3 value)
     {
-        print("targetpos");
         _hasTargetPosition = true;
-        print(value.ToString());
         _targetPosition = value;       
     }
 
