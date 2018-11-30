@@ -6,6 +6,8 @@ TagManager:
   tags:
   - CanBeFollowUpArea
   - CanEscapeArea
+  - CanMoveToAttack
+  - Ground
   layers:
   - Default
   - TransparentFX

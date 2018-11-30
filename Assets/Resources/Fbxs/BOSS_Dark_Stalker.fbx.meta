@@ -115,7 +115,7 @@ ModelImporter:
       takeName: Idle1
       firstFrame: 0
       lastFrame: 10
-      wrapMode: 2
+      wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
