@@ -30,7 +30,7 @@ public class LookTargetPos : MonoBehaviour
         {
             isMouseDown = false;
         }
-        //如果鼠标左键一直按下，则一直更新鼠标位置
+        //如果鼠标右键一直按下，则一直更新鼠标位置
         if (isMouseDown == true)
         {
             LookAtPos();

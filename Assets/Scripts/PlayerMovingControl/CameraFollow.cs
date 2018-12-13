@@ -20,7 +20,7 @@ public class CameraFollow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Follow();
+        //Follow();
         RotateView();
         ScrollView();
     }
@@ -45,7 +45,7 @@ public class CameraFollow : MonoBehaviour
         distance = Mathf.Clamp(distance, 3, 18);
         followPos = followPos.normalized * distance;
     }
-    //按下鼠标右键的时候移动鼠标可以改变摄像机的视角
+    //按下鼠标滑轮的时候移动鼠标可以改变摄像机的视角
     void RotateView()
     {
 

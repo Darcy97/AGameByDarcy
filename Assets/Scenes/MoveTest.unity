@@ -180,8 +180,8 @@ GameObject:
   - component: {fileID: 794327047}
   - component: {fileID: 794327046}
   - component: {fileID: 794327045}
-  - component: {fileID: 794327048}
   - component: {fileID: 794327049}
+  - component: {fileID: 794327048}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -257,12 +257,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 794327044}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b0111e2a22b45444b8e6599d43ac1f7, type: 3}
+  m_Script: {fileID: 11500000, guid: 17d475e398443614c8a883e363cfab43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1234755399}
-  scrollSpeed: 10
-  rotateSpeed: 2
+  player: {fileID: 0}
 --- !u!114 &794327049
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -448,11 +446,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!1 &1234755399 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1348967674229442, guid: bf2d1e5ef0b3b364db66288bf7ee5e45,
-    type: 2}
-  m_PrefabInternal: {fileID: 1687301620}
 --- !u!4 &1234755402 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4373322543839322, guid: bf2d1e5ef0b3b364db66288bf7ee5e45,
