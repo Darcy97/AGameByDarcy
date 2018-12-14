@@ -23,18 +23,20 @@ public class LookTargetPos : MonoBehaviour
 
         if (Input.GetMouseButtonDown(1))
         {
-            isMouseDown = true;
+            
+            //isMouseDown = true;
             LookAtPos();
+
         }
-        else if (Input.GetMouseButtonUp(1))
-        {
-            isMouseDown = false;
-        }
+//         else if (Input.GetMouseButtonUp(1))
+//         {
+//             isMouseDown = false;
+//         }
         //如果鼠标右键一直按下，则一直更新鼠标位置
-        if (isMouseDown == true)
-        {
-            LookAtPos();
-        }
+//         if (isMouseDown == true)
+//         {
+//             LookAtPos();
+//         }
 
         //避免碰撞转向 暂时这样处理
         this.transform.LookAt(targetPos);
@@ -51,7 +53,9 @@ public class LookTargetPos : MonoBehaviour
             targetPos = hitinfo.point;
             targetPos.y = this.transform.position.y;
             this.transform.LookAt(targetPos);
-            
+            GameObject Arrow = Resources.Load<GameObject>("Objects/3D/Model/Arrow/Arrow_Green");
+            GameObject arrow = GameObject.Instantiate(Arrow);
+            arrow.transform.position = targetPos;
         }
     }
 }

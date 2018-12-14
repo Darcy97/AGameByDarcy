@@ -30,7 +30,7 @@ public class CameraControl : MonoBehaviour
 
     void Update()
     {
-        //RotateView();
+        RotateView();
         ScrollView();
         CameraMoveToMouse();
     }
@@ -38,7 +38,7 @@ public class CameraControl : MonoBehaviour
 
     #region Method
     /// <summary>
-    /// 滑动鼠标滑轮的时候可以改变摄像机与游戏主角的距离
+    /// 滑动鼠标滑轮的时候可以改变摄像机高度
     /// </summary>
     void ScrollView()
     {
@@ -53,53 +53,29 @@ public class CameraControl : MonoBehaviour
         {
             ResetCameraPostion(1.3f);
         }
-       
-        if (Mathf.Abs(Input.GetAxis("Mouse ScrollWheel")) > 0)
-        {
-
-            ResetCameraPostion(1 - Input.GetAxis("Mouse ScrollWheel"));
-        }
     }
 
     void ResetCameraPostion(float k)
     {       
         camera_field_size *= k;
-        camera_field_size = Mathf.Clamp(camera_field_size, 30, 90);
+        camera_field_size = Mathf.Clamp(camera_field_size, 5, 120);
         Camera.main.fieldOfView = camera_field_size;
     }
 
 
     /// <summary>
-    /// 按下鼠标滑轮的时候移动鼠标可以改变摄像机的视角
+    /// 鼠标滚轮调整视角
     /// </summary>
     private void RotateView()
     {
 
-        //点击鼠标滚轮 旋转视角
-        if (Input.GetMouseButtonDown(2))
+        if (Input.GetAxis("Mouse ScrollWheel") > 0 && transform.rotation.x < 0.5 || 
+            Input.GetAxis("Mouse ScrollWheel") < 0 && transform.rotation.x > 0.2)
         {
-            isRotating = true;
+            transform.Rotate(new Vector3(100 * Input.GetAxis("Mouse ScrollWheel"), 0, 0));
+            ResetCameraPostion(1 + Input.GetAxis("Mouse ScrollWheel"));
         }
-        else if (Input.GetMouseButtonUp(2))
-        {
-            isRotating = false;
-        }
-        if (isRotating)
-        {
-            this.transform.RotateAround(player.transform.position, player.transform.up, rotateSpeed * Input.GetAxis("Mouse X"));
-            Vector3 originalPos = this.transform.position;
-            Quaternion originalRotation = this.transform.rotation;
-            this.transform.RotateAround(player.transform.position, this.transform.right, -rotateSpeed * Input.GetAxis("Mouse Y"));
-            float x = this.transform.eulerAngles.x;
-            print(x);
-            //限制摄像机旋转的最大，最小位置
-            if (x < 10 || x > 70)
-            {
-                this.transform.position = originalPos;
-                this.transform.rotation = originalRotation;
-            }
-        }
-        followPos = player.transform.position - this.transform.position;
+        return;
     }
 
     /// <summary>
